@@ -1,0 +1,40 @@
+---
+import Social from "./Social.astro"
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = Astro.url.pathname.split('/')[1];
+---
+
+<!-- Hamburger -->
+<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+
+<div class="collapse navbar-collapse bg-body fs-4" id="n_bar">
+
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a href="/" class={"nav-link" + (currentPath === "" ? " active" : "")}>Home</a>
+        </li>
+        <li class="nav-item">
+            <a href="/about"  class={"nav-link" + (currentPath === "about" ? " active" : "")}>About</a>
+        </li>
+        <li class="nav-item">
+            <a href="/blog"  class={"nav-link" + (currentPath === "blog" ? " active" : "")}>Blog</a>
+        </li>
+        <li class="nav-item">
+            <a href="/tags"  class={"nav-link" + (currentPath === "tags" ? " active" : "")}>Tags</a>
+        </li>
+    </ul>
+
+    <div class="ms-5">
+        &nbsp;
+    </div>
+
+    <ul class="navbar-nav">
+        <li class="">
+            <Social color="text-lkred"/>
+        </li>
+    </ul>
+
+</div>

@@ -1,0 +1,62 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* size of svg logo in the header */
+.logo svg {
+  width: auto;
+  height: 60px;
+}
+
+/* Prepared for Dark / Light theme toggle */
+/* Barva textu v SVG Logu se odvíjí od barvy .logo */
+.logo {
+  color: black;
+}
+/*
+html[data-bs-theme="dark"] .logo {
+  color: white;
+}
+*/
+
+/* Content should start below header */
+main {
+  margin-top: 80px;
+}
+
+/* Max width of the content container */
+.container {
+  max-width: 960px;
+}
+
+/* Collapse menu style*/
+[data-bs-theme="light"] .navbar-collapse {
+  background-color: #ffffff;
+}
+/*
+[data-bs-theme="dark"] .navbar-collapse {
+  background-color: #212529;
+}
+*/
+
+.navbar-collapse {
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Custom colors */
+.text-lkred {
+  color: #db463b;
+}
+
+.bg-lkred {
+  background-color: #db463b;
+}
+
+.bg-lkgrey {
+  background-color: #7e7777;
+}
+
+.border-lkred {
+  border-color: #db463b !important;
+}
+/* end of custom colors */
+

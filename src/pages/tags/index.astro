@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const allPosts = Object.values(import.meta.glob('../posts/*.md', { eager: true }));
+
+// Zajistíme, že každý post má pole tagů, jinak použijeme ['others']
+const normalizedPosts = allPosts.map((post: any) => {
+    const tags = Array.isArray(post.frontmatter.tags) && post.frontmatter.tags.length > 0
+        ? post.frontmatter.tags
+        : ['others'];
+    return { ...post, frontmatter: { ...post.frontmatter, tags } };
+});
+
+// Vytvoříme seznam unikátních tagů
+const tags = [...new Set(normalizedPosts.flatMap((post) => post.frontmatter.tags))];
+
+const pageTitle = "Tags";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <div>
+        {tags.map((tag) => (
+            <p><a href={`/tags/${tag}`}>#{tag}</a></p>
+        ))}
+    </div>
+</BaseLayout>
+
+<style>
+a {
+    color: #00539F;
+}
+ 
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+ 
+.tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+}
+</style>

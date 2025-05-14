@@ -1,0 +1,25 @@
+---
+import Social from "./Social.astro"
+
+/* year fallback - set at build time */
+const year = new Date().getFullYear();
+---
+
+<footer class="text-white bg-lkred mt-auto">
+    <div class="container py-5">
+        <div class="row">
+
+            <div class="col-8 d-flex align-items-center">
+                <span id="footer-year">{year}</span> &copy; Lukáš Kaplan
+            </div>
+            <div class="col d-flex justify-content-end">
+                <Social color="text-white"/>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+<script is:inline>
+    document.getElementById("footer-year").innerText = new Date().getFullYear();
+</script>
